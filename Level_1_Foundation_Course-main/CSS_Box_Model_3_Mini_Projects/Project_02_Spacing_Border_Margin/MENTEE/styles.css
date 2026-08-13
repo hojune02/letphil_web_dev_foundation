@@ -1,0 +1,108 @@
+/*
+  🧠 PROJECT: Spacing Playground — Border & Margin
+
+  ✅ TOPICS
+  - Box Model (content → padding → border → margin)
+  - width / height / padding
+  - border / margin
+  - box-sizing
+  - box-shadow
+
+  IMPORTANT 
+  - After each step: SAVE → REFRESH.
+
+  🎯 GOAL: Visually compare padding vs margin and see how borders affect overall size.
+*/
+
+/* STEP 1 — Setup page + playground container */
+/*
+  Style body and .page (font, remove margin, add max-width + padding).
+  Style .playground: add padding and a light background so outside space is visible.
+  Use display:flex with gap OR grid with gap to separate boxes.
+*/
+body {
+  font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  margin: 0px;
+  max-width: max-content;
+}
+
+.playground {
+  padding: 20px;
+  display: grid;
+  gap: 30px;
+}
+
+/* ✅ WRITE YOUR CSS UNDER THIS LINE */
+
+/* STEP 2 — Base box size (width/height) */
+/*
+  Select .box: give it min-height so it looks like a real box.
+  Give .box a background color so the content area is visible.
+*/
+
+.box {
+  min-height: 100px;
+  background-color: grey;
+}
+
+/* ✅ WRITE YOUR CSS UNDER THIS LINE */
+
+/* STEP 3 — Padding (inside space) */
+/*
+  Add padding to .box (example: 16px).
+  Explain: padding increases space between content and border.
+*/
+.box {
+  padding: 16px;
+}
+
+/* ✅ WRITE YOUR CSS UNDER THIS LINE */
+
+/* STEP 4 — Border (outline) */
+/*
+  Add a border to .box (example: 2px solid).
+  On .box--two ONLY: make border thickness bigger (example: 8px).
+  Observe: border changes the visible size of the box.
+*/
+.box {
+  border: 2px solid blue;
+}
+.box--two {
+  border-width: 8px;
+}
+
+/* ✅ WRITE YOUR CSS UNDER THIS LINE */
+
+/* STEP 5 — Margin (outside space) */
+/*
+  On .box--one ONLY: add margin-bottom (example: 24px).
+  Explain: margin is outside the border—pushes other boxes away.
+*/
+.box--one{
+  margin-bottom: 24px;
+}
+
+/* ✅ WRITE YOUR CSS UNDER THIS LINE */
+
+/* STEP 6 — Force a comparison */
+/*
+  On .box--three: make padding very big (example: 32px).
+  On .box--one: keep padding smaller (example: 10px).
+  Now you can SEE: padding changes inside space, margin changes outside space.
+*/
+
+.box--three {
+  padding: 32px;
+}
+.box--one {
+  padding: 5px;
+}
+/* ✅ WRITE YOUR CSS UNDER THIS LINE */
+
+/*
+  ✅ FINAL CHECKLIST
+  - Can you point to content/padding/border/margin on your boxes?
+  - Did you test changing padding and border thickness?
+  - Did you test box-sizing: border-box?
+  - Did you add box-shadow and confirm it doesn't change layout spacing?
+*/

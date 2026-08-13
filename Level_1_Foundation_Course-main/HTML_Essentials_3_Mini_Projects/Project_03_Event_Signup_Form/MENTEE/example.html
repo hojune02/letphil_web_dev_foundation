@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Community Event Signup</title>
+    <meta name="description" description="Sign up for community events in your area!" />
+    <meta name="keywords" description="community, events, friends, hobbies" />
+    <meta name="author" description="Community Events" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header>
+        <h1>Underwater Basket Weaving</h1>
+        <p>
+          August 5, 2026<br />
+          <span class="small">Copenhagen, Denmark</span>
+        </p>
+      </header>
+      <main>
+        <section class="card">
+          <h2>Event Highlights</h2>
+          <ul>
+            <li>Submerged Weaving Challenges</li>
+            <li>Synchronized Basket Crafting</li>
+            <li>Deepwater Team Relay</li>
+            <li>Floating Fiber Art</li>
+            <li>Aquatic Skills Showcase</li>
+          </ul>
+          <p class="small">Lists are extremely useful because they provide structure, predictability, and efficient navigation.</p>
+        </section>
+        <section class="card">
+          <h2>Schedule</h2>
+          <table>
+            <thead>
+              <td>Time</td>
+              <td>Activity</td>
+              <td>Notes</td>
+            </thead>
+            <tbody>
+              <tr>
+                <td>10:00–10:20</td>
+                <td>Welcome & Introduction</td>
+                <td>Event overview, safety guidelines, and team assignments</td>
+              </tr>
+              <tr>
+                <td>10:20–11:00</td>
+                <td>Beginner Weaving Workshop</td>
+                <td>Learn basic underwater weaving techniques and tool handling</td>
+              </tr>
+              <tr>
+                <td>11:00–11:45</td>
+                <td>Team Basket Challenge</td>
+                <td>Small groups compete to complete themed basket designs underwater</td>
+              </tr>
+              <tr>
+                <td>11:45–12:00</td>
+                <td>Wrap-Up & Closing</td>
+                <td>Announcements, awards, participant photos, and feedback</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+        <section class="card">
+          <h3>Signup</h3>
+          <form action="submit">
+            <label for="fullname">Full name</label>
+            <input type="text" name="fullname" id="fullname" />
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" />
+            <label for="tickettype">Ticket Type</label>
+            <select name="tickettype" id="tickettype">
+              <option value="fullday">Full Day</option>
+              <option value="partday">Part Day</option>
+            </select>
+            <p>Dietary preference</p>
+            <input type="radio" id="radio-none" name="diet" value="none" checked />
+            <label for="radio-none">None</label>
+            <input type="radio" id="radio-vegetarian" name="diet" value="vegetarian" />
+            <label for="radio-vegetarian">Vegetarian</label>
+            <input type="radio" id="radio-vegan" name="diet" value="vegan" />
+            <label for="radio-vegan">Vegan</label>
+            <input type="radio" id="radio-lactose" name="diet" value="lactose" />
+            <label for="radio-lactose">Lactose Intolerant</label>
+            <br />
+            <label for="optional-message">Optional Message:</label>
+            <textarea name="optional-message" id="optional-message" placeholder="Your message here. (Optional)"></textarea>
+            <input type="checkbox" id="checkbox-agree-terms" name="agree-terms" value="agree" />
+            <label for="checkbox-agree-terms">I agree to the terms and conditions</label>
+            <br />
+            <br />
+            <input type="submit" placeholder="Submit" />
+          </form>
+        </section>
+      </main>
+      <footer></footer>
+    </div>
+  </body>
+</html>

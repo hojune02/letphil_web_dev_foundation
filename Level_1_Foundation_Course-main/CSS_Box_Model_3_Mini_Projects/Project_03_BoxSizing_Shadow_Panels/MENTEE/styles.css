@@ -1,0 +1,94 @@
+/*
+  🧠 PROJECT: Panels Studio — box-sizing & box-shadow
+
+  ✅ TOPICS
+  - Box Model (content → padding → border → margin)
+  - width / height / padding
+  - border / margin
+  - box-sizing
+  - box-shadow
+
+  IMPORTANT 
+  - After each step: SAVE → REFRESH.
+
+  🎯 GOAL: Compare default content-box sizing vs border-box, then add box-shadow for depth.
+*/
+
+/* STEP 1 — Layout row (visual comparison) */
+/*
+  Style body + .page (font, remove margin, max-width, padding).
+  Make .row a responsive grid: 3 columns when there is space, otherwise stack.
+  Add gap so panels don't touch.
+*/
+body {
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0px;
+  max-width: 900px;
+}
+
+.row {
+  display: grid;
+  gap: 30px;
+}
+
+/* ✅ WRITE YOUR CSS UNDER THIS LINE */
+
+/* STEP 2 — Give all panels the same base styling */
+/*
+  Select .panel: add background, border, border-radius, and padding.
+  This gives all panels the same starting point.
+*/
+.panel {
+  background-color: lightgrey;
+  border: 1px solid blue;
+  border-radius: 10px;
+  padding: 10px;
+  width: 200px;
+}
+
+/* ✅ WRITE YOUR CSS UNDER THIS LINE */
+
+/* STEP 3 — Show the problem (default sizing) */
+/*
+  On .panel--default, increase padding (example: 28px).
+  Notice: with default sizing, extra padding can make it feel larger.
+*/
+.panel--default{
+  padding: 50px;
+  border-width: 5px;
+}
+
+/* ✅ WRITE YOUR CSS UNDER THIS LINE */
+
+/* STEP 4 — Fix with box-sizing: border-box */
+/*
+  On .panel--borderbox, set box-sizing: border-box.
+  Give it the same padding value as .panel--default.
+  Observe: it stays consistent because padding/border stay inside the width.
+*/
+.panel--borderbox{
+  box-sizing: border-box;
+  padding: 50px;
+  border-width: 5px;
+}
+
+/* ✅ WRITE YOUR CSS UNDER THIS LINE */
+
+/* STEP 5 — Add box-shadow (depth) */
+/*
+  On .panel--shadow, add a box-shadow (subtle but visible).
+  Confirm: shadow does not change layout spacing.
+*/
+.panel--shadow {
+  box-shadow: 2px 2px 10px black;
+}
+
+/* ✅ WRITE YOUR CSS UNDER THIS LINE */
+
+/*
+  ✅ FINAL CHECKLIST
+  - Can you point to content/padding/border/margin on your boxes?
+  - Did you test changing padding and border thickness?
+  - Did you test box-sizing: border-box?
+  - Did you add box-shadow and confirm it doesn't change layout spacing?
+*/
