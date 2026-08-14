@@ -12,6 +12,11 @@
   Set a font-family (example: system-ui).
   Set a light background-color so the card stands out.
 */
+body {
+  margin: 0;
+  font-family: system-ui;
+  background-color: lightskyblue;
+}
 
 /* ✅ WRITE YOUR CSS UNDER THIS LINE */
 
@@ -21,6 +26,12 @@
   Use min-height: 100vh and flex to center the card.
   Tip: display:flex; align-items:center; justify-content:center;
 */
+.page {
+  display: flex;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
 
 /* ✅ WRITE YOUR CSS UNDER THIS LINE */
 
@@ -31,6 +42,12 @@
   Add padding, border-radius, and a subtle border.
   This teaches changing background colors on containers.
 */
+.card {
+  background-color: white;
+  padding: 20px;
+  border-radius: 20px;
+  border: 2px solid lightblue;
+}
 
 /* ✅ WRITE YOUR CSS UNDER THIS LINE */
 
@@ -40,6 +57,13 @@
   Select .subtitle and make it softer/lighter (color with opacity OR a gray).
   This teaches text colors for hierarchy.
 */
+.title {
+  color: darkblue;
+}
+
+.subtitle {
+  color: rgba(0, 0, 255, 0.5);
+}
 
 /* ✅ WRITE YOUR CSS UNDER THIS LINE */
 
@@ -52,5 +76,29 @@
   - .badge--bad  = red vibe
   Make sure the text is readable (contrast).
 */
+.badge {
+  padding: 1px;
+  border-radius: 10px;
+  border: 2px solid;
+  font-weight: bold;
+  font-size: 17px;
+  margin: 20px;
+}
+
+.item {
+  margin: 20px;
+}
+
+.badge--good {
+  border-color: green;
+}
+.badge--warn {
+  border-color: orange;
+}
+.badge--bad {
+  border-color: red;
+}
+
+
 
 /* ✅ WRITE YOUR CSS UNDER THIS LINE */

@@ -19,6 +19,9 @@ RULES:
       Example: ["CDMX", "Seoul", "Tokyo", "London"]
    2) console.log the whole array.
 */
+let favouriteCities = ["CDMX", "Seoul", "Tokyo", "London"]
+
+console.log(favouriteCities);
 
 // ✅ WRITE YOUR CODE UNDER THIS LINE
 
@@ -31,6 +34,11 @@ RULES:
    Format idea:
    "City #0: CDMX"
 */
+let count = 1;
+favouriteCities.forEach(function (city) {
+   console.log(`City #${count}: ${city}`);
+   count += 1;
+})
 
 // ✅ WRITE YOUR CODE UNDER THIS LINE
 
@@ -42,6 +50,9 @@ RULES:
    Hint:
    - city.toUpperCase()
 */
+for (let city of favouriteCities){
+   console.log(city.toUpperCase());
+}
 
 // ✅ WRITE YOUR CODE UNDER THIS LINE
 
@@ -56,6 +67,12 @@ RULES:
    { name: "Jocelin", age: 32, isMentor: true }
 */
 
+let profile = {
+   name: "Hojune",
+   age: "12",
+   isMentor: "True"
+}
+
 // ✅ WRITE YOUR CODE UNDER THIS LINE
 
 /* -----------------------------------------
@@ -67,6 +84,9 @@ RULES:
    Format idea:
    "age => 32"
 */
+for (let key in profile){
+   console.log(`Key ${key}: value ${profile[key]}`)
+}
 
 // ✅ WRITE YOUR CODE UNDER THIS LINE
 
@@ -83,5 +103,17 @@ RULES:
    Use forEach to:
    - log ONLY the students where level === 1
 */
+let students = 
+[
+   { name: "Ana", level: 1 },
+   { name: "Leo", level: 2 },
+   { name: "Mia", level: 1 }
+];
+
+students.forEach(function (student) {
+   if (student['level'] === 1) {
+      console.log(student);
+   }
+})
 
 // ✅ WRITE YOUR CODE UNDER THIS LINE

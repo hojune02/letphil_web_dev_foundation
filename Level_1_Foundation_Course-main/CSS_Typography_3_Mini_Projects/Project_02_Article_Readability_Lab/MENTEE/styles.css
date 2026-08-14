@@ -26,6 +26,17 @@
   Select .page and set max-width + center it with margin: 0 auto.
   Add padding so text isn't touching the edges.
 */
+body {
+  margin: 0;
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  font-size: 16px;
+}
+
+.page {
+  max-width: 300px;
+  margin: 0 auto;
+  padding: 20px;
+}
 
 /* ✅ WRITE YOUR CSS UNDER THIS LINE */
 
@@ -34,6 +45,9 @@
   Select .article and set text-align: left (or try justify just to compare).
   Try changing text-align to center to SEE why articles usually aren't centered.
 */
+.article {
+  text-align: left;
+}
 
 /* ✅ WRITE YOUR CSS UNDER THIS LINE */
 
@@ -42,6 +56,9 @@
   Select .para and set line-height (example: 1.6 to 1.8).
   Observe: higher line-height usually makes paragraphs easier to read.
 */
+.para {
+  line-height: 1.6;
+}
 
 /* ✅ WRITE YOUR CSS UNDER THIS LINE */
 
@@ -51,6 +68,13 @@
   Select .para and add word-spacing (example: 0.02em).
   Keep it subtle—too much spacing feels weird.
 */
+.kicker {
+  letter-spacing: 0.06em;
+}
+
+.para {
+  word-spacing: 0.02em;
+}
 
 /* ✅ WRITE YOUR CSS UNDER THIS LINE */
 
@@ -62,3 +86,11 @@
 */
 
 /* ✅ WRITE YOUR CSS UNDER THIS LINE */
+.meta {
+  text-transform: uppercase;
+}
+
+.author {
+  text-decoration: none;
+  border-bottom: 5px solid green;
+}

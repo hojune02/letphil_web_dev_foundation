@@ -12,6 +12,16 @@
   Set a background-color.
   Select .page and give it max-width + centered layout.
 */
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color: lightblue;
+}
+
+.page {
+  max-width: 300px;
+  margin: 0 auto;
+}
 
 /* ✅ WRITE YOUR CSS UNDER THIS LINE */
 
@@ -21,6 +31,12 @@
   Set display: grid.
   Refresh: nothing changes until you define columns.
 */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(4, 120px);
+  gap: 12px;
+}
 
 /* ✅ WRITE YOUR CSS UNDER THIS LINE */
 
@@ -55,5 +71,12 @@
   Select .tile and give it a background-color and border-radius.
   Center the text inside tiles (hint: use flex or grid on the tile).
 */
+.tile {
+  border: 2px solid red;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 /* ✅ WRITE YOUR CSS UNDER THIS LINE */

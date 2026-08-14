@@ -22,6 +22,12 @@
   Then console.log all answers (debug step).
 */
 
+let answer1 = "4";
+let answer2 = "let";
+let answer3  = true;
+
+console.log(answer1, answer2, answer3);
+
 // ✅ WRITE YOUR CODE UNDER THIS LINE
 
 // STEP 2 — Create the correct answers
@@ -32,6 +38,10 @@
   - correct2 could be "let"
   - correct3 could be true
 */
+
+let correct1 = "4";
+let correct2 = "lett";
+let correct3 = true;
 
 // ✅ WRITE YOUR CODE UNDER THIS LINE
 
@@ -46,6 +56,13 @@
   Console.log each boolean.
 */
 
+let isQ1Correct = answer1 === correct1;
+let isQ2Correct = answer2 === correct2;
+let isQ3Correct = answer3 === correct3;
+
+
+console.log(isQ1Correct, isQ2Correct, isQ3Correct);
+
 // ✅ WRITE YOUR CODE UNDER THIS LINE
 
 // STEP 4 — Use > and < comparisons (requested)
@@ -59,6 +76,20 @@
   Note: we are practicing > and < here.
 */
 
+let score = 0;
+if (isQ1Correct) {
+  score += 1;
+}
+if (isQ2Correct) {
+  score += 1;
+}
+if (isQ3Correct) {
+  score += 1;
+}
+
+let hasAtLeastOne = score > 0;
+let isPerfect = score === 3;
+
 // ✅ WRITE YOUR CODE UNDER THIS LINE
 
 // STEP 5 — Use logical operators && and ||
@@ -70,6 +101,9 @@
   Console.log both.
 */
 
+let passedAll = isQ1Correct && isQ2Correct && isQ3Correct;
+
+let passedAtLeastOne = isQ1Correct || isQ2Correct || isQ3Correct;
 // ✅ WRITE YOUR CODE UNDER THIS LINE
 
 // STEP 6 — Final debugging message with if/else
@@ -81,4 +115,13 @@
   This step forces you to use parentheses + curly braces correctly.
 */
 
+if (passedAll) {
+  console.log("Perfect Score!");
+}
+else if (passedAtLeastOne) {
+  console.log("Some correct answers");
+}
+else {
+  console.log("Try again");
+}
 // ✅ WRITE YOUR CODE UNDER THIS LINE

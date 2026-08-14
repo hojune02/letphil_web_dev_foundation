@@ -23,6 +23,8 @@ RULES:
       Example: 85
    2) console.log("score:", score)
 */
+let score = 85;
+console.log("score: ", score);
 
 // ✅ WRITE YOUR CODE UNDER THIS LINE
 
@@ -35,6 +37,9 @@ RULES:
 */
 
 // ✅ WRITE YOUR CODE UNDER THIS LINE
+if (score > 70) {
+   console.log("Passed");
+}
 
 /* -----------------------------------------
    STEP 3 — if...else statement
@@ -43,6 +48,12 @@ RULES:
    - If score is 90 or higher → console.log("Excellent")
    - Else → console.log("Keep practicing")
 */
+if (score >= 90){
+   console.log("Excellent");
+}
+else {
+   console.log("Keep practising!");
+}
 
 // ✅ WRITE YOUR CODE UNDER THIS LINE
 
@@ -57,6 +68,9 @@ RULES:
    Then console.log it.
 */
 
+let between70and100 = score >= 70 && score <= 100;
+console.log(`between70and100: ${between70and100}`);
+
 // ✅ WRITE YOUR CODE UNDER THIS LINE
 
 /* -----------------------------------------
@@ -68,6 +82,9 @@ RULES:
 
    Then console.log it.
 */
+let veryLowOrHigh = score < 50 || score > 95;
+
+console.log(veryLowOrHigh);
 
 // ✅ WRITE YOUR CODE UNDER THIS LINE
 
@@ -81,4 +98,7 @@ RULES:
    Then console.log("Ternary label:", label)
 */
 
+let label = score >= 90 ? "Top student" : "Student";
+
+console.log("Ternary label: ", label);
 // ✅ WRITE YOUR CODE UNDER THIS LINE

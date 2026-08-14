@@ -22,6 +22,12 @@
   Console.log the inputs so you can SEE them.
 */
 
+let billAmount = 520;
+let tipPercentWhole = 15;
+let peopleCount = 2;
+
+console.log(billAmount, tipPercentWhole, peopleCount);
+
 // ✅ WRITE YOUR CODE UNDER THIS LINE
 
 // STEP 2 — Percentage logic (15% → decimal)
@@ -32,6 +38,10 @@
   Console.log tipPercentDecimal.
 */
 
+let tipPercentDecimal = tipPercentWhole / 100;
+
+console.log(tipPercentDecimal);
+
 // ✅ WRITE YOUR CODE UNDER THIS LINE
 
 // STEP 3 — Calculate the tip (multiplication)
@@ -39,6 +49,10 @@
   Create tipAmount = billAmount * tipPercentDecimal
   Console.log tipAmount (debug step).
 */
+
+let tipAmount = billAmount * tipPercentDecimal;
+
+console.log(tipAmount);
 
 // ✅ WRITE YOUR CODE UNDER THIS LINE
 
@@ -48,6 +62,10 @@
   Console.log totalAmount.
 */
 
+
+let totalAmount = billAmount + tipAmount;
+
+console.log(totalAmount);
 // ✅ WRITE YOUR CODE UNDER THIS LINE
 
 // STEP 5 — Split per person (division)
@@ -56,6 +74,10 @@
   Console.log perPerson.
   Note: you might see decimals — that's normal.
 */
+
+let perPerson = totalAmount / peopleCount;
+
+console.log(perPerson);
 
 // ✅ WRITE YOUR CODE UNDER THIS LINE
 
@@ -67,6 +89,10 @@
   If remainder is 0, it divides evenly. If not, there's a leftover remainder.
 */
 
+let remainder = billAmount % peopleCount;
+
+console.log(remainder);
+
 // ✅ WRITE YOUR CODE UNDER THIS LINE
 
 // STEP 7 — Debugging checks (>, <)
@@ -76,5 +102,7 @@
   - Is totalAmount > billAmount ?
   - Is remainder < peopleCount ? (it should be!)
 */
+
+console.log(tipAmount > 0, totalAmount > billAmount, remainder < peopleCount);
 
 // ✅ WRITE YOUR CODE UNDER THIS LINE

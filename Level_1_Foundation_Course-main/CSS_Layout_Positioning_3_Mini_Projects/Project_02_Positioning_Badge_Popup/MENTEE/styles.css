@@ -19,6 +19,16 @@
   Give .filler a big min-height so the page scrolls (if needed).
   Scrolling is required to test sticky + fixed.
 */
+body {
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  margin: 0;
+  max-width: 200px;
+  padding: 20px;
+}
+
+.filler {
+  min-height: 500px;
+}
 
 /* ✅ WRITE YOUR CSS UNDER THIS LINE */
 
@@ -28,7 +38,12 @@
   Set top: 0 so it sticks to the top when you scroll.
   Add background + border so it looks like a real header.
 */
-
+.sticky-header{
+  position:sticky;
+  top:0;
+  background-color: blue;
+  border: 2px solid red;
+}
 /* ✅ WRITE YOUR CSS UNDER THIS LINE */
 
 /* STEP 3 — Make the card a relative positioning parent */
@@ -37,6 +52,9 @@
   This does not move the card by itself.
   It allows absolutely positioned children to use this card as their reference.
 */
+.relative-parent {
+  position: relative;
+}
 
 /* ✅ WRITE YOUR CSS UNDER THIS LINE */
 
@@ -47,6 +65,15 @@
   Example: top: 12px; right: 12px;
   Add padding, border-radius, background, and color so it looks like a badge.
 */
+.badge {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  padding: 20px;
+  border-radius: 5px;
+  background: red;
+
+}
 
 /* ✅ WRITE YOUR CSS UNDER THIS LINE */
 
@@ -57,6 +84,11 @@
   Example: bottom: 18px; right: 18px;
   Add width/height, border-radius, and box-shadow.
 */
+.chat-fab {
+  position: fixed;
+  bottom: 18px;
+  right: 18px;
+}
 
 /* ✅ WRITE YOUR CSS UNDER THIS LINE */
 

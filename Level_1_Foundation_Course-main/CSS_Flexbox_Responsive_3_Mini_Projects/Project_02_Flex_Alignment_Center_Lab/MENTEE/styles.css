@@ -11,6 +11,27 @@
   Select .stage and give it a fixed height (example: 220px).
   Add a border or background so you can see the stage area clearly.
 */
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.page {
+  max-width: 200px;
+  margin: 0 auto;
+}
+
+.demo {
+  background-color: lightblue;
+  border: 2px solid lightsalmon;
+  padding: 10px;
+}
+
+.stage {
+  height: 220px;
+  border: 2px solid red;
+}
+
 
 /* ✅ WRITE YOUR CSS UNDER THIS LINE */
 
@@ -20,6 +41,10 @@
   Add gap so chips have space.
   By default: flex-direction is row.
 */
+.stage {
+  display: flex;
+  gap: 10px;
+}
 
 /* ✅ WRITE YOUR CSS UNDER THIS LINE */
 
@@ -34,6 +59,9 @@
   - space-around
   - space-evenly
 */
+.stage {
+  justify-content: center;
+}
 
 /* ✅ WRITE YOUR CSS UNDER THIS LINE */
 
@@ -47,6 +75,9 @@
   - flex-end
   Important: align-items moves items vertically (when direction is row).
 */
+.stage {
+  align-items: center;
+}
 
 /* ✅ WRITE YOUR CSS UNDER THIS LINE */
 
@@ -56,5 +87,8 @@
   Now justify-content moves items vertically, and align-items moves items horizontally.
   This is the KEY flexbox concept to understand.
 */
+.stage {
+  flex-direction: column
+}
 
 /* ✅ WRITE YOUR CSS UNDER THIS LINE */
