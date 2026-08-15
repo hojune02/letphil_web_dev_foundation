@@ -19,6 +19,8 @@ RULES:
    2) console.log it
 */
 
+let numbers = [3, 8, 12, 1, 6, 9, 20, 4, 7, 15];
+console.log(numbers);
 // ✅ WRITE YOUR CODE UNDER THIS LINE
 
 /* -----------------------------------------
@@ -28,6 +30,9 @@ RULES:
    2) Keep only numbers that are 10 or higher
    3) console.log bigNumbers
 */
+
+let bigNumbers = numbers.filter(num => num >= 10);
+console.log(bigNumbers);
 
 // ✅ WRITE YOUR CODE UNDER THIS LINE
 
@@ -41,6 +46,9 @@ RULES:
    3) console.log evenNumbers
 */
 
+let evenNumbers = numbers.filter(num => num % 2 === 0);
+console.log(evenNumbers);
+
 // ✅ WRITE YOUR CODE UNDER THIS LINE
 
 /* -----------------------------------------
@@ -50,6 +58,9 @@ RULES:
    2) Each number should become number * 2
    3) console.log doubled
 */
+
+let doubled = numbers.map(num => num * 2);
+console.log(doubled);
 
 // ✅ WRITE YOUR CODE UNDER THIS LINE
 
@@ -62,5 +73,10 @@ RULES:
 
    Then console.log result
 */
+
+let result = numbers.filter(num => num > 5);
+result = result.map(num => num + 100);
+
+console.log(result);
 
 // ✅ WRITE YOUR CODE UNDER THIS LINE

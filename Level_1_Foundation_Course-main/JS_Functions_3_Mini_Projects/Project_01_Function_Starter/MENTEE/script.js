@@ -17,6 +17,9 @@ RULES:
    1) Create a function named sayHello
    2) Inside it, console.log("Hello!")
 */
+function sayHello() {
+   console.log("Hello!");
+}
 
 // ✅ WRITE YOUR CODE UNDER THIS LINE
 
@@ -25,6 +28,10 @@ RULES:
    -----------------------------------------
    Call sayHello() 3 times.
 */
+
+sayHello();
+sayHello();
+sayHello();
 
 // ✅ WRITE YOUR CODE UNDER THIS LINE
 
@@ -36,6 +43,13 @@ RULES:
    3) Store the return value in a variable and console.log it
 */
 
+function getGreeting(){
+   return "Hi, welcome!";
+}
+
+let greeting = getGreeting();
+console.log(greeting);
+
 // ✅ WRITE YOUR CODE UNDER THIS LINE
 
 /* -----------------------------------------
@@ -46,6 +60,12 @@ RULES:
    3) Call it with 2 different names
 */
 
+function greetPerson(name) {
+   console.log(`Hello, ${name}!`);
+}
+
+greetPerson("James");
+greetPerson("Steven");
 // ✅ WRITE YOUR CODE UNDER THIS LINE
 
 /* -----------------------------------------
@@ -57,4 +77,10 @@ RULES:
    4) console.log square(5)
 */
 
+
+let square = function (n) {
+   return n * n
+}
+
+console.log(square(5));
 // ✅ WRITE YOUR CODE UNDER THIS LINE

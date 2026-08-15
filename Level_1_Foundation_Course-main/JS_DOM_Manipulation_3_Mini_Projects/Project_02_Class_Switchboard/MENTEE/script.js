@@ -22,6 +22,13 @@
 // 5) #statusText
 //
 // Then console.log each one.
+let highlightBtn = document.getElementById('highlightBtn');
+let shakeBtn = document.getElementById('shakeBtn');
+let resetBtn = document.getElementById('resetBtn');
+let messageBox = document.getElementById('messageBox');
+let statusText = document.getElementById('statusText');
+
+console.log(highlightBtn, shakeBtn, resetBtn, messageBox, statusText);
 
 // ✅ WRITE YOUR CODE UNDER THIS LINE
 
@@ -36,6 +43,19 @@
 //      statusText.textContent = "highlight OFF"
 //
 // Hint: messageBox.classList.contains("highlight")
+highlightBtn.addEventListener("click", function(){
+    if (messageBox.classList.contains("highlight")){
+        messageBox.classList.remove('highlight');
+    } else {
+        messageBox.classList.add("highlight");
+    }
+    if (messageBox.classList.contains("highlight")) {
+        statusText.textContent = "highlight ON";
+
+    } else {
+        statusText.textContent = "highlight OFF";
+    }
+});
 
 // ✅ WRITE YOUR CODE UNDER THIS LINE
 
@@ -48,6 +68,15 @@
 // 3) after 350ms remove class "shake"
 // 4) after removing: statusText.textContent = "done shaking"
 
+shakeBtn.addEventListener("click", function(){
+    messageBox.classList.add("shake");
+    statusText.textContent = "shaking...";
+    setTimeout(function(){
+        messageBox.classList.remove("shake");
+    }, 350);
+    statusText.textContent = "done shaking";
+})
+
 // ✅ WRITE YOUR CODE UNDER THIS LINE
 
 // --------------------------------------------
@@ -57,5 +86,10 @@
 // 1) remove class "highlight"
 // 2) remove class "shake" (just in case)
 // 3) statusText.textContent = "reset complete"
+resetBtn.addEventListener("click", function() {
+    messageBox.classList.remove("highlight");
+    messageBox.classList.remove("shake");
+    statusText.textContent = "reset complete";
+})
 
 // ✅ WRITE YOUR CODE UNDER THIS LINE

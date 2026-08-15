@@ -23,6 +23,13 @@ RULES:
 
    Then console.log(contact)
 */
+let contact = {
+   name: "Hojune",
+   phone: "010-1111-1111",
+   city: "Seoul"
+};
+
+console.log(contact);
 
 // ✅ WRITE YOUR CODE UNDER THIS LINE
 
@@ -34,6 +41,9 @@ RULES:
    3) console.log the updated object
 */
 
+console.log(contact.name);
+contact.city = "Daejeon";
+console.log(contact);
 // ✅ WRITE YOUR CODE UNDER THIS LINE
 
 /* -----------------------------------------
@@ -43,6 +53,11 @@ RULES:
    2) Add a new property called isFavorite (boolean)
    3) console.log the updated object
 */
+
+contact["email"] = "hojunekim@mail.com";
+contact["isFavourite"] = true;
+
+console.log(contact);
 
 // ✅ WRITE YOUR CODE UNDER THIS LINE
 
@@ -54,6 +69,9 @@ RULES:
    1) Create a variable called keyName with value "phone"
    2) console.log contact[keyName]
 */
+
+let keyName = "phone";
+console.log(contact[keyName]);
 
 // ✅ WRITE YOUR CODE UNDER THIS LINE
 
@@ -67,5 +85,9 @@ RULES:
    Example output:
    "name => Ana"
 */
+
+for (let key in contact){
+   console.log(`${key} => ${contact[key]}`);
+}
 
 // ✅ WRITE YOUR CODE UNDER THIS LINE

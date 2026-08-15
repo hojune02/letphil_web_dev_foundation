@@ -22,6 +22,9 @@ RULES:
    2) console.log the array
    3) console.log("length:", groceries.length)
 */
+let groceries = ["eggs", "milk", "rice", "coffee"];
+console.log(groceries);
+console.log("Length: ", groceries.length);
 
 // ✅ WRITE YOUR CODE UNDER THIS LINE
 
@@ -32,6 +35,10 @@ RULES:
    2) Change the second item (index 1) to a new value
    3) console.log the updated array
 */
+
+console.log(groceries[0]);
+groceries[1] = "banana";
+console.log(groceries);
 
 // ✅ WRITE YOUR CODE UNDER THIS LINE
 
@@ -45,6 +52,12 @@ RULES:
    5) console.log the array after pop
 */
 
+groceries.push("chocolate");
+console.log(groceries);
+let removedEnd = groceries.pop();
+console.log(groceries);
+
+
 // ✅ WRITE YOUR CODE UNDER THIS LINE
 
 /* -----------------------------------------
@@ -56,6 +69,12 @@ RULES:
    4) console.log removedStart
    5) console.log the array after shift
 */
+
+groceries.unshift("water");
+console.log(groceries);
+let removedStart = groceries.shift("water");
+console.log(removedStart);
+console.log(groceries);
 
 // ✅ WRITE YOUR CODE UNDER THIS LINE
 
@@ -72,5 +91,12 @@ RULES:
    4) Use splice to INSERT "tea" at index 1 (remove 0)
    5) console.log groceries after insert
 */
+
+console.log(groceries.splice(2, 1));
+console.log(groceries);
+
+groceries.splice(1, 1, "tea");
+console.log(groceries);
+
 
 // ✅ WRITE YOUR CODE UNDER THIS LINE

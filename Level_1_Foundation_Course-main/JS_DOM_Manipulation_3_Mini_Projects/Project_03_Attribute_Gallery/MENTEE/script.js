@@ -26,6 +26,10 @@
 // 4) #gallery
 //
 // Then console.log them.
+let imgInput = document.getElementById('imgUrlInput');
+let addImageBtn = document.getElementById('addImageBtn');
+let clearBtn = document.getElementById('clearBtn');
+let gallery = document.getElementById('gallery');
 
 // ✅ WRITE YOUR CODE UNDER THIS LINE
 
@@ -44,6 +48,29 @@
 // 5) create button "Remove" with classes: "btn" + "removeThumbBtn"
 // 6) append img + buttons into the thumb
 // 7) return the thumb
+function createThumb(url, idNumber){
+    let thumbDiv = document.createElement("div");
+    thumbDiv.classList.add("thumb");
+    thumbDiv.setAttribute("data-id", idNumber);
+
+    let image = document.createElement("img");
+    image.setAttribute("src", url);
+    image.setAttribute("alt", `User Image ${idNumber}`);
+
+    let setAltBtn = document.createElement("button");
+    setAltBtn.textContent = "Set Alt";
+    setAltBtn.classList.add("btn", "setAltBtn");
+
+    let removeBtn = document.createElement("button");
+    removeBtn.textContent = "Remove";
+    removeBtn.classList.add("btn", "removeThumbBtn");
+
+    thumbDiv.appendChild(image);
+    thumbDiv.appendChild(setAltBtn);
+    thumbDiv.appendChild(removeBtn);
+
+    return thumbDiv;
+}
 
 // ✅ WRITE YOUR CODE UNDER THIS LINE
 
@@ -61,6 +88,17 @@
 //    - append it to #gallery
 //    - increment nextId
 //    - clear the input
+
+let nextId = 3;
+addImageBtn.addEventListener("click", function(){
+    if (imgInput.value === "") {console.log("here");return;}
+
+    let thumb = createThumb(imgInput.value, nextId);
+    gallery.appendChild(thumb);
+
+    nextId += 1;
+    imgInput.textContent == "";
+})
 
 // ✅ WRITE YOUR CODE UNDER THIS LINE
 
@@ -81,6 +119,19 @@
 //    1) find closest .thumb
 //    2) remove it
 
+gallery.addEventListener("click", function(event) {
+    if (event.target.classList.contains("setAltBtn")){
+        let closest = event.target.closest(".thumb");
+        let img = closest.querySelector('img');
+        let dataId = closest.getAttribute("data-id");
+        img.setAttribute("alt", `Gallery image #${dataId}`);
+        console.log(img.alt);
+    } else if (event.target.classList.contains("removeThumbBtn")){
+        let closest = event.target.closest(".thumb");
+        closest.remove();
+    }
+})
+
 // ✅ WRITE YOUR CODE UNDER THIS LINE
 
 // --------------------------------------------
@@ -89,6 +140,12 @@
 // On clearBtn click:
 // 1) select all .thumb inside #gallery
 // 2) remove each one with a loop (forEach)
+clearBtn.addEventListener("click", function(){
+    let galleryContents = document.querySelectorAll(".thumb");
+    galleryContents.forEach((content) => {
+        content.remove();
+    });
+});
 
 // ✅ WRITE YOUR CODE UNDER THIS LINE
 
@@ -99,5 +156,11 @@
 // 1) select all existing .thumb elements
 // 2) console.log how many you found
 // 3) for each thumb, log its data-id
+
+let thumbs = document.querySelectorAll(".thumb");
+console.log(thumbs.length);
+for (let thumb of thumbs){
+    console.log(thumb.getAttribute("data-id"));
+}
 
 // ✅ WRITE YOUR CODE UNDER THIS LINE

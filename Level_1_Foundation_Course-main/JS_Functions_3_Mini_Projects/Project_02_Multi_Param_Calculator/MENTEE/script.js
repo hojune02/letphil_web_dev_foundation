@@ -21,6 +21,12 @@ RULES:
    Then console.log(add(2, 3))
 */
 
+function add(a,b){
+   return a + b;
+}
+
+console.log(add(2,3));
+
 // ✅ WRITE YOUR CODE UNDER THIS LINE
 
 /* -----------------------------------------
@@ -36,6 +42,13 @@ RULES:
    calcTotal(10, 3, 0.16)
 */
 
+function calcTotal(price, qty, taxRate){
+   let subtotal = price * qty;
+   let tax = subtotal * taxRate;
+   return subtotal + tax;
+}
+
+console.log(calcTotal(10, 3, 0.16));
 // ✅ WRITE YOUR CODE UNDER THIS LINE
 
 /* -----------------------------------------
@@ -46,6 +59,14 @@ RULES:
 
    Then test it with the same numbers.
 */
+
+let calcTotalArrow = (price, qty, taxRate) => {
+   let subtotal = price * qty;
+   let tax = subtotal * taxRate;
+   return subtotal + tax;
+}
+
+console.log(calcTotalArrow(10, 3, 0.16));
 
 // ✅ WRITE YOUR CODE UNDER THIS LINE
 
@@ -61,6 +82,12 @@ RULES:
    amount.toFixed(2)
 */
 
+let formatMoney = (amount) => {
+   return `\$${amount.toFixed(2)}`;
+}
+
+console.log(formatMoney(10));
+
 // ✅ WRITE YOUR CODE UNDER THIS LINE
 
 /* -----------------------------------------
@@ -70,5 +97,8 @@ RULES:
    2) Pass that total into formatMoney
    3) console.log the final formatted result
 */
+let total = calcTotal(10, 30, 0.20);
+let formattedTotal = formatMoney(total);
+console.log(formattedTotal);
 
 // ✅ WRITE YOUR CODE UNDER THIS LINE

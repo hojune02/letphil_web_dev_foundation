@@ -22,6 +22,15 @@ RULES:
    3) Call printCity()
 */
 
+let city = "Seoul";
+
+function printCity(){
+   console.log(city);
+}
+
+printCity();
+
+
 // ✅ WRITE YOUR CODE UNDER THIS LINE
 
 /* -----------------------------------------
@@ -37,6 +46,13 @@ RULES:
    - That would cause an error (secret is local)
 */
 
+function makeSecret(){
+   let secret = "Secret!";
+   console.log(secret);
+}
+
+makeSecret();
+
 // ✅ WRITE YOUR CODE UNDER THIS LINE
 
 /* -----------------------------------------
@@ -50,6 +66,14 @@ RULES:
    4) Call printLevel()
 */
 
+let level = 1;
+function printLevel(){
+   let level = 3;
+   console.log("inside: ", level);
+}
+
+console.log("outside: ", level);
+printLevel();
 // ✅ WRITE YOUR CODE UNDER THIS LINE
 
 /* -----------------------------------------
@@ -65,6 +89,11 @@ RULES:
    It works because declarations are hoisted.
 */
 
+hoistedHello();
+function hoistedHello(){
+   console.log("Hello hoisted");
+}
+
 // ✅ WRITE YOUR CODE UNDER THIS LINE
 
 /* -----------------------------------------
@@ -78,5 +107,10 @@ RULES:
    Explain in a comment:
    - Why does it fail?
 */
+
+// notHoistedHello();
+const notHoistedHello = () => {
+   console.log("Hello!");
+}
 
 // ✅ WRITE YOUR CODE UNDER THIS LINE

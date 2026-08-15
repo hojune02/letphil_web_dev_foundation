@@ -17,17 +17,24 @@ RULES:
 // console.log it
 // ✅ WRITE YOUR CODE UNDER THIS LINE
 
+let value = 7.6;
+console.log(value);
+
 /* STEP 2 — Math.round() */
 // Use Math.round(value)
 // console.log the result
 // ✅ WRITE YOUR CODE UNDER THIS LINE
-
+console.log(Math.round(value));
 /* STEP 3 — Math.floor() */
 // Use Math.floor(value)
 // console.log the result
 // ✅ WRITE YOUR CODE UNDER THIS LINE
 
+console.log(Math.floor(value));
+
 /* STEP 4 — Math.ceil() */
 // Use Math.ceil(value)
 // console.log the result
 // ✅ WRITE YOUR CODE UNDER THIS LINE
+
+console.log(Math.ceil(value));
