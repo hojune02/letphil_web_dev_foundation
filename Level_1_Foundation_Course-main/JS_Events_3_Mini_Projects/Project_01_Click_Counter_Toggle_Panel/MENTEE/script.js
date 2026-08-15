@@ -31,6 +31,13 @@
 // 💡 Tip: Use document.querySelector("...")
 // =====================================================
 
+let countValue = document.querySelector("#countValue");
+let increaseBtn = document.querySelector("#increaseBtn");
+let resetBtn = document.querySelector("#resetBtn");
+let toggleBtn = document.querySelector("#toggleBtn");
+let panel = document.querySelector("#panel");
+let debugText = document.querySelector("#debugText");
+
 // ✅ WRITE YOUR CODE UNDER THIS LINE
 
 // =====================================================
@@ -45,6 +52,7 @@
   This variable is your "memory".
 */
 // =====================================================
+let count = 0;
 
 // ✅ WRITE YOUR CODE UNDER THIS LINE
 
@@ -61,6 +69,13 @@
 // 💡 Tip: increase count with: count = count + 1  (or count += 1)
 // =====================================================
 
+increaseBtn.addEventListener("click", function(){
+  count += 1;
+  countValue.textContent = count;
+  console.log("New count: ", count);
+  debugText.textContent = "Last action: +1";
+})
+
 // ✅ WRITE YOUR CODE UNDER THIS LINE
 
 // =====================================================
@@ -73,6 +88,12 @@
 // 3) console.log a reset message
 // 4) update #debugText to say: "Last action: reset"
 // =====================================================
+resetBtn.addEventListener("click", function(){
+  count = 0;
+  countValue.textContent = count;
+  console.log("Reset!");
+  debugText.textContent = "Last action: reset";
+})
 
 // ✅ WRITE YOUR CODE UNDER THIS LINE
 
@@ -92,6 +113,14 @@
 //
 // 💡 Hint: toggle() returns true/false depending on if the class is now present.
 // =====================================================
+toggleBtn.addEventListener("click", function() {
+  panel.classList.toggle("isHidden");
+  if (panel.classList.contains("isHidden")){
+    debugText.textContent = "Last action: panel hidden";
+  } else {
+    debugText.textContent = "Last action: panel shown";
+  }
+})
 
 // ✅ WRITE YOUR CODE UNDER THIS LINE
 
@@ -102,5 +131,6 @@
 // Example:
 // console.log(countValueEl, increaseBtnEl, ...)
 // =====================================================
+
 
 // ✅ WRITE YOUR CODE UNDER THIS LINE

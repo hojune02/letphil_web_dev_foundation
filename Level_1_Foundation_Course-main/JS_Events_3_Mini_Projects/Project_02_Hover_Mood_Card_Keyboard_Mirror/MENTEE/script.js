@@ -27,7 +27,12 @@
 // - #lastKey
 // - #eventType
 // =====================================================
-
+let moodCard = document.querySelector("#moodCard");
+let moodText = document.querySelector("#moodText");
+let typeInput = document.querySelector("#typeInput");
+let mirrorText = document.querySelector("#mirrorText");
+let lastKey = document.querySelector("#lastKey");
+let eventType = document.querySelector("#eventType");
 // ✅ WRITE YOUR CODE UNDER THIS LINE
 
 // =====================================================
@@ -41,6 +46,11 @@
 //
 // 💡 Tip: moodCardEl.classList.add("isHappy")
 // =====================================================
+moodCard.addEventListener("mouseover", function(){
+  moodCard.classList.add("isHappy");
+  moodText.textContent = "Current mood: happy";
+  console.log("Happy mood with mouseover");
+});
 
 // ✅ WRITE YOUR CODE UNDER THIS LINE
 
@@ -53,6 +63,11 @@
 // 2) update #moodText back to: "Current mood: calm"
 // 3) console.log a message
 // =====================================================
+moodCard.addEventListener("mouseout", function(){
+  moodCard.classList.remove("isHappy");
+  moodText.textContent = "Current mood: calm";
+  console.log("Calm mood with mouseout");
+});
 
 // ✅ WRITE YOUR CODE UNDER THIS LINE
 
@@ -68,6 +83,12 @@
 //
 // 💡 Tip: inputEl.value gives you the current input text
 // =====================================================
+typeInput.addEventListener("keydown", function(event){
+  mirrorText.textContent = typeInput.value;
+  lastKey.textContent = event.key;
+  eventType.textContent = "keydown";
+
+});
 
 // ✅ WRITE YOUR CODE UNDER THIS LINE
 
@@ -80,6 +101,18 @@
 // 2) (Optional) add the class "isFocused" to the card for 200ms
 //    to give a tiny "feedback" effect while typing.
 // =====================================================
+typeInput.addEventListener("keyup", function(event){
+  mirrorText.textContent = typeInput.value;
+  lastKey.textContent = event.key;
+  eventType.textContent = "keyup";
+
+  let cards = document.querySelectorAll(".card");
+  cards[1].classList.add("isFocused");
+  setTimeout(() => {
+    cards[1].classList.remove("isFocused");
+  }, 200);
+
+});
 
 // ✅ WRITE YOUR CODE UNDER THIS LINE
 

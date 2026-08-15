@@ -27,6 +27,12 @@
 // - #startBtn
 // - #clickCountText
 // =====================================================
+let themeSelect = document.querySelector("#themeSelect");
+let themeStatus = document.querySelector("#themeStatus");
+let listenBtn = document.querySelector("#listenBtn");
+let stopBtn = document.querySelector("#stopBtn");
+let startBtn = document.querySelector("#startBtn");
+let clickCountText = document.querySelector("#clickCountText");
 
 // ✅ WRITE YOUR CODE UNDER THIS LINE
 
@@ -42,6 +48,14 @@
 //
 // 💡 Tip: bodyEl.classList.remove("theme-space", "theme-sunset", "theme-ocean")
 // =====================================================
+themeSelect.addEventListener("change", function(){
+    let value = themeSelect.value;
+    console.log(value);
+    let bodyEl = document.querySelector("body");
+    bodyEl.classList.remove("theme-space", "theme-sunset", "theme-ocean")
+    bodyEl.classList.add(`theme-${value}`);
+    themeStatus.textContent = value;
+})
 
 // ✅ WRITE YOUR CODE UNDER THIS LINE
 
@@ -50,6 +64,8 @@
 // -----------------------------------------------------
 // ✅ Goal: make a variable `clickCount` that starts at 0.
 // =====================================================
+
+let clickCount = 0;
 
 // ✅ WRITE YOUR CODE UNDER THIS LINE
 
@@ -72,6 +88,12 @@
 */
 // =====================================================
 
+function handleListenclick(){
+  clickCount += 1;
+  clickCountText.textContent = `Button clicks: ${clickCount}`;
+  listenBtn.textContent = `Click Me (${clickCount})`;
+};
+
 // ✅ WRITE YOUR CODE UNDER THIS LINE
 
 // =====================================================
@@ -80,6 +102,7 @@
 // ✅ Goal: listenBtnEl.addEventListener("click", handleListenClick)
 // =====================================================
 
+listenBtn.addEventListener("click", handleListenclick);
 // ✅ WRITE YOUR CODE UNDER THIS LINE
 
 // =====================================================
@@ -90,6 +113,10 @@
 // 1) remove the click listener from listenBtnEl
 // 2) update listenBtn text to say: "Click Me (listener OFF)"
 // =====================================================
+stopBtn.addEventListener("click", function() {
+  listenBtn.removeEventListener("click", handleListenclick);
+  listenBtn.textContent = "Click Me (listener OFF)";
+});
 
 // ✅ WRITE YOUR CODE UNDER THIS LINE
 
@@ -101,6 +128,11 @@
 // 1) add the click listener back to listenBtnEl
 // 2) update listenBtn text to say: "Click Me (listener ON)"
 // =====================================================
+
+startBtn.addEventListener("click", function() {
+  listenBtn.addEventListener("click", handleListenclick);
+  listenBtn.textContent = "Click Me (listener ON)";
+});
 
 // ✅ WRITE YOUR CODE UNDER THIS LINE
 
