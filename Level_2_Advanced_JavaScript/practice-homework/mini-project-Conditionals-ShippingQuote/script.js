@@ -45,3 +45,48 @@ STEP 7 — Output
 STEP 8 — Wiring
   When quoteBtn is clicked, compute and show the quote.
 */
+
+let weightInput = document.getElementById("weightInput");
+let distanceInput = document.getElementById("distanceInput");
+let isMemberInput = document.getElementById("isMemberInput");
+let quoteBtn = document.getElementById("quoteBtn");let output = document.getElementById("output");
+
+
+
+quoteBtn.addEventListener("click", () => {
+
+  let baseFee = 5;
+  let perKg = 1.2;
+
+  let weight = Number(weightInput.value);
+  let dist = Number(distanceInput.value);
+  let isMember = isMemberInput.checked;
+  console.log(isMember);
+
+  if (Number(weightInput.value) < 0 || Number(distanceInput.value) < 0){
+    output.textContent = "Enter valid values";
+  } 
+
+  let surcharge = dist > 1000 ? 15 : (dist > 500 ? 7 : 0);
+
+  let oversize = weight > 20 ? 10 : 0;
+
+  let discountRate = isMember ? 0.10 : 0;
+  let preDiscount = baseFee + weight * perKg + surcharge + oversize;
+  let discountAmount = preDiscount * discountRate;
+  let total = preDiscount - discountAmount;
+
+  output.textContent = `
+    Base: \$${baseFee.toFixed(2)}
+    Weight: \$${(weight * perKg).toFixed(2)}
+    Surchage: \$${surcharge.toFixed(2)}
+    Oversize: \$${oversize.toFixed(2)}
+    Discount: -\$${discountAmount.toFixed(2)}
+    Total: \$${total.toFixed(2)}
+  `;
+})
+
+
+
+
+

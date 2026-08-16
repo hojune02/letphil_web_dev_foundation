@@ -41,3 +41,46 @@ STEP 4 — Render
 STEP 5 — Handler
   When runBtn is clicked, read a and b, compute, and render.
 */
+let aInput = document.getElementById("aInput");
+let bInput = document.getElementById("bInput");
+let runBtn = document.getElementById("runBtn");
+let resultList = document.getElementById("resultList");
+
+function readNumber(input){
+  return Number(input.value);
+}
+
+function computeAll(a, b){
+  return {
+    sum: a + b,
+    diff: a - b,
+    prod: a * b,
+    quot: a / b,
+    mod: a % b,
+    eqLoose: a == b,
+    eqStrict: a === b,
+    greater: a > b,
+    bothEven: (a % 2 === 0) && (b % 2 === 0),
+    anyOver10: (a > 10) || (b > 10),
+    notEqual: !(a === b),
+    precOne: a + b * 2,
+    precTwo: (a + b) * 2
+  };
+}
+
+function renderResults(obj){
+  resultList.innerHTML = "";
+
+  for (let key in obj){
+    let li = document.createElement("li");
+    li.textContent = `${key}: ${obj[key]}`;
+    resultList.appendChild(li);
+  }
+} 
+
+runBtn.addEventListener("click", () => {
+  let a = readNumber(aInput);
+  let b = readNumber(bInput);
+
+  renderResults(computeAll(a,b));
+})

@@ -66,6 +66,7 @@ function handleRemove(){
     items.pop();
     renderAll();
   }
+  
 
 }
 

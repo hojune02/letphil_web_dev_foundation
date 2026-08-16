@@ -41,3 +41,47 @@ STEP 4 — Builder
 STEP 5 — Wiring
   When buildBtn is clicked, run buildList.
 */
+
+let textValue = "hello";
+let numberValue = 42;
+let boolValue = true;
+let nullValue = null;
+let undefValue = undefined;
+let objValue = {key: "value"};
+let arrValue = [1, 2, 3];
+let fnValue = function(){return "yo";};
+
+let values = [textValue, numberValue, boolValue, nullValue, undefValue, objValue, arrValue, fnValue];
+
+function describeType(value){
+  if (value === null){
+    return "null";
+  } else if (Array.isArray(value)) {
+    return "array";
+  } else {
+    return typeof value;
+  }
+}
+
+function toDisplay(value){
+  if (describeType(value) === "object"){
+    return JSON.stringify(value);
+  } else if (describeType(value) === "array"){
+    return "[" + String(value) + "]";
+  } else {
+    return String(value);
+  }
+}
+
+let outputList = document.getElementById("outputList");
+
+function buildList(values){
+  for (let value of values){
+      let newItem = document.createElement("li");
+      newItem.textContent = `${toDisplay(value)} / ${describeType(value)}`;
+      outputList.appendChild(newItem);
+  }
+}
+
+let buildBtn = document.getElementById("buildBtn");
+buildBtn.addEventListener("click", function () {buildList(values)});
