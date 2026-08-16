@@ -99,3 +99,98 @@ Reset should:
 */
 
 // ✅ WRITE YOUR CODE BELOW THIS LINE
+
+let minutesInput = document.getElementById("minutesInput");
+let secondsInput = document.getElementById("secondsInput");
+
+let startBtn = document.getElementById("startBtn");
+let pauseBtn = document.getElementById("pauseBtn");
+let resetBtn = document.getElementById("resetBtn");
+
+let timeDisplay = document.getElementById("timeDisplay");
+let statusText = document.getElementById("statusText");
+let progressBarFill = document.getElementById("progressBarFill");
+
+
+// Step 2
+let intervalId = null;
+let totalSeconds = 0;
+let remainingSeconds = 0;
+let isRunning = false;
+
+// Step 3
+function readInputSeconds(){
+   remainingSeconds = Number(minutesInput.value) * 60 + Number(secondsInput.value)
+   totalSeconds = Number(minutesInput.value) * 60 + Number(secondsInput.value);
+   if (remainingSeconds < 0) {
+      statusText.textContent = "Invalid Timer";
+   }
+}
+
+function formatTime(seconds){
+   let min = String(Math.floor(seconds / 60)).padStart(2, "0");
+   let sec = String(Math.floor(seconds % 60)).padStart(2, "0");
+
+   return `${min}:${sec}`;
+}
+
+function render(){
+   timeDisplay.textContent = formatTime(remainingSeconds);
+
+   let progress = ((totalSeconds - remainingSeconds) / totalSeconds) * 100;
+   progressBarFill.style.width = `${progress}%`;
+}
+
+function stopInterval(){
+   if (intervalId){
+      clearInterval(intervalId);
+   }
+   intervalId = null;
+   isRunning = false;
+}
+
+startBtn.addEventListener("click", () => {
+   if (isRunning){
+      return;
+   }
+
+   if (remainingSeconds === 0){
+      readInputSeconds();
+   }
+
+   startBtn.disabled = true;
+   pauseBtn.disabled = false;
+
+   statusText.textContent = "Running...";
+   isRunning = true;
+
+   intervalId = setInterval(() => {
+      remainingSeconds -= 1;
+      render();
+      if (remainingSeconds <= 0){
+         stopInterval();
+         statusText.textContent = "✅ Sprint Complete!";
+         startBtn.disabled = false;
+         pauseBtn.disabled = true;
+      }
+   }, 1000);
+});
+
+pauseBtn.addEventListener("click", () => {
+   stopInterval();
+   statusText.textContent = "Paused";
+
+   startBtn.disabled = false;
+   pauseBtn.disabled = true;
+})
+
+resetBtn.addEventListener("click", () => {
+   stopInterval();
+   readInputSeconds();
+   render();
+   statusText.textContent = "Idle - set a sprint and press Start";
+
+   startBtn.disabled = false;
+   pauseBtn.disabled = true;
+})
+

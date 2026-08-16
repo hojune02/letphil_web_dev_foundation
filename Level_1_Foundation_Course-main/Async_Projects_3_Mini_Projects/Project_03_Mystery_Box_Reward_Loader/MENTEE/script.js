@@ -112,3 +112,98 @@ resetBtn should call resetUI()
 */
 
 // ✅ WRITE YOUR CODE BELOW THIS LINE
+
+let openBtn = document.getElementById("openBtn");
+let resetBtn = document.getElementById("resetBtn");
+
+let thenModeRadio = document.getElementById("thenModeRadio");
+let asyncModeRadio = document.getElementById("asyncModeRadio");
+
+let loadingText = document.getElementById("loadingText");
+let resultCard = document.getElementById("resultCard");
+let rewardEmoji = document.getElementById("rewardEmoji");
+let rewardName = document.getElementById("rewardName");
+let rewardMeta = document.getElementById("rewardMeta");
+let errorCard = document.getElementById("errorCard");
+let errorMessage = document.getElementById("errorMessage");
+
+function loadReward(){
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      let reward = Math.random() > 0.3 ? resolve({emoji: "🧿", name: "Neon Charm", rarity: "Rare", points: 120, meta: "This is metadata"}) : reject("No reward!");
+    }, 1200);
+  })
+}
+
+function showLoading(){
+  loadingText.style.display = "block";
+  resultCard.style.display = "none";
+  errorCard.style.display = "none";
+
+  openBtn.disabled = true;
+}
+
+function showSuccess(reward){
+  loadingText.style.display = "none";
+  resultCard.style.display = "block";
+
+  rewardEmoji.textContent = reward["emoji"];
+  rewardName.textContent = reward["name"];
+  rewardMeta.textContent = reward["meta"];
+
+  errorCard.style.display = "none";
+  openBtn.disabled = false;
+}
+
+function showError(message){
+  loadingText.style.display = "none";
+  errorCard.style.display = "block";
+  errorMessage.textContent = message;
+  resultCard.style.display = "none";
+  openBtn.disabled = false;
+}
+
+function resetUI(){
+  loadingText.style.display = "none";
+  errorCard.style.display = "none";
+  resultCard.style.display = "none";
+  openBtn.disabled = false;
+}
+
+openBtn.addEventListener("click", () => {
+  if (thenModeRadio.checked) {
+    console.log("then/catch");
+    showLoading();
+    loadReward()
+    .then(reward => showSuccess(reward))
+    .catch(err => showError(err));
+  } else if (asyncModeRadio.checked) {
+    async function waitReward() {
+      console.log("async await");
+      try {
+        const reward = await loadReward();
+        showSuccess(reward);
+      } catch (error) {
+        showError(error);
+      }
+    }
+    waitReward();
+  }
+});
+
+if (asyncModeRadio.checked){
+  async function waitReward() {
+    console.log("async await");
+    try {
+      const reward = await loadReward();
+      showSuccess(reward);
+    } catch (error) {
+      showError(error);
+    }
+  }
+  openBtn.addEventListener("click", waitReward);
+}
+
+resetBtn.addEventListener("click", () => {
+  resetUI();
+})
