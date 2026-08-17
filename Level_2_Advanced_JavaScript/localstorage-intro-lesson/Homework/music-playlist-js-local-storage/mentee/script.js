@@ -3,6 +3,9 @@
 //  Declare a variable named "playlist" and set it to an empty array
 // 🧪 Console log to confirm the playlist is initialized as an empty array
 
+let playlist = [];
+console.log(playlist);
+
 //  Step 2: Get references to all the DOM elements (HTML elements we interact with)
 //  Use document.getElementById() to store references to:
 // - title input        → id="title"
@@ -16,6 +19,16 @@
 // - dark mode button   → id="toggleModeBtn"
 //  Console log to confirm all DOM elements were successfully selected
 
+let title = document.getElementById("title");
+let artist = document.getElementById("artist");
+let link = document.getElementById("link");
+let mood = document.getElementById("mood");
+let songForm = document.getElementById("songForm");
+let playlistElem = document.getElementById("playlist");
+let filterMood = document.getElementById("filterMood");
+let shuffleBtn = document.getElementById("shuffleBtn");
+let toggleModeBtn = document.getElementById("toggleModeBtn");
+
 // Step 3: Function to load the playlist from localStorage
 //  Define a function called loadPlaylist()
 // Inside the function:
@@ -24,6 +37,15 @@
 // - Then update the playlist array with the parsed data
 //  Console log to show the playlist loaded from localStorage
 //  Console log to show that no playlist data was found (if none exists)
+function loadPlaylist(){
+  let saved = localStorage.getItem("customPlaylist");
+  if (saved !== null){
+    saved = JSON.parse(saved);
+    playlist = saved;
+    console.log(saved);
+  }
+  console.log(saved);
+}
 
 //  Step 4: Function to save the playlist into localStorage
 //  Define a function called savePlaylist()
@@ -31,12 +53,49 @@
 // - Use JSON.stringify() to convert the playlist array to a string
 // - Use localStorage.setItem() to save it with the key "customPlaylist"
 //  Console log to confirm playlist was saved to localStorage
+function savePlaylist(){
+  let strPlaylist = JSON.stringify(playlist);
+  localStorage.setItem("customPlaylist", strPlaylist);
+  console.log(localStorage.getItem("customPlaylist"));
+}
 
 //  Step 5: Function to render the songs onto the screen
 //  Define a function called renderPlaylist(songsToRender)
 // Inside the function:
 // - First, clear the playlist container using innerHTML = ""
 // - Use forEach to loop through each song and do the following:
+function renderPlaylist(songsToRender){
+  playlistElem.innerHTML = "";
+
+  if (songsToRender.length === 0){
+    return;
+  }
+
+  songsToRender.forEach((song, index) => {
+    let newDiv = document.createElement("div");
+    newDiv.classList.add("song-card");
+    newDiv.innerHTML = `
+      <strong>${song.title}</strong>
+      <em>Artist:</em> ${song.artist}<br>
+      <em>Mood:</em> ${song.mood}<br>
+      <a href="${song.link}" target="_blank">🎧 Listen</a><br>
+      <button class="delete-btn" data-index="${index}">🗑️ Delete</button>
+    `;
+    playlistElem.appendChild(newDiv);
+    console.log(song);
+  })
+
+  let deleteBtns = document.querySelectorAll(".delete-btn");
+  for (let deleteBtn of deleteBtns){
+    deleteBtn.addEventListener("click", (event) => {
+      let idx = Number(deleteBtn.getAttribute("data-index"));
+      let del = playlist.splice(idx, 1);
+      savePlaylist();
+      loadPlaylist();
+      renderPlaylist(playlist);
+    })
+  }
+}
 
 //  1. Create a new div using document.createElement("div")
 //  2. Give it a class of "song-card" using classList.add()
@@ -70,6 +129,20 @@
 // - Call renderPlaylist(playlist)
 // - Use songForm.reset() to clear the form
 // 🧪 Console log to confirm a new song was added
+function addSong(e){
+  e.preventDefault();
+  let newObj = {
+    title: title.value,
+    artist: artist.value,
+    mood: mood.value,
+    link: link.value
+  };
+  playlist.push(newObj);
+  savePlaylist();
+  renderPlaylist(playlist);
+  songForm.reset();
+  console.log("Added new song: ", newObj);
+}
 
 // 🎯 Step 7: Filter playlist by mood
 // 👉 Define a function called filterPlaylist()
@@ -80,6 +153,17 @@
 // - Then call renderPlaylist(filtered)
 // 🧪 Console log to show which mood was selected for filtering
 // 🧪 Console log to show filtered results
+function filterPlaylist(){
+  let filter = filterMood.value;
+  if (filter === "all"){
+    renderPlaylist(playlist);
+  } else {
+    let filteredPlaylist = playlist.filter((song) => song.mood === filter);
+    renderPlaylist(filteredPlaylist);
+    console.log("Filter mood: ", filter);
+    console.log("Filtered playlist: ", filterPlaylist);
+  }
+}
 
 // 🔀 Step 8: Shuffle the playlist using Fisher-Yates algorithm
 // 👉 Define a function called shufflePlaylist()
@@ -90,6 +174,16 @@
 // - After the loop, save and render the playlist again
 // 🧪 Console log to confirm the playlist was shuffled
 
+function shufflePlaylist(){
+  for (let i = playlist.length - 1; i > 0; i--){
+    let j = Math.floor(Math.random() * (i + 1));
+    [playlist[i], playlist[j]] = [playlist[j], playlist[i]];
+  }
+  savePlaylist();
+  renderPlaylist(playlist);
+  console.log(playlist);
+}
+
 // 🌙 Step 9: Toggle between Dark Mode and Light Mode
 // 👉 Define a function called toggleDarkMode()
 // Inside the function:
@@ -98,6 +192,18 @@
 // - Update toggle button text accordingly ("Light Mode" or "Dark Mode")
 // - Save the theme preference in localStorage (key = "theme")
 // 🧪 Console log to confirm dark mode toggle state
+function toggleDarkMode(){
+  let body = document.querySelector("body");
+  body.classList.toggle("dark");
+  if (body.classList.contains("dark")){
+    toggleModeBtn.textContent = "Light Mode";
+    localStorage.setItem("theme", "dark")
+  } else {
+    toggleModeBtn.textContent = "Dark Mode";
+    localStorage.setItem("theme", "light");
+  }
+  console.log("Current display mode: ", localStorage.getItem("theme"));
+}
 
 // 💡 Step 10: Load the saved theme from localStorage
 // 👉 Define a function called loadTheme()
@@ -106,6 +212,16 @@
 // - If it’s "dark", add the "dark" class to body and update toggle button text
 // 🧪 Console log to confirm dark theme was loaded
 // 🧪 Console log to confirm light/default theme
+function loadTheme(){
+  let theme = localStorage.getItem("theme");
+  if (theme === "dark"){
+    body.classList.add("dark");
+    toggleModeBtn.textContent = "Light Mode";
+    console.log("Dark Mode Loaded");
+  }
+
+  console.log("Current display mode (loadTheme): ", localStorage.getItem("theme"));
+}
 
 // 🎯 Step 11: Add event listeners to buttons and form
 // 👉 Add the following event listeners:
@@ -114,6 +230,12 @@
 // - shuffleBtn "click" → shufflePlaylist
 // - toggleModeBtn "click" → toggleDarkMode
 // 🧪 Console log to confirm all event listeners were attached
+songForm.addEventListener("submit", addSong);
+filterMood.addEventListener("change", filterPlaylist);
+shuffleBtn.addEventListener("click", shufflePlaylist);
+toggleModeBtn.addEventListener("click", toggleDarkMode);
+
+console.log("All Listeners Attached");
 
 // 🚀 Step 12: Initialize the app
 // 👉 Call the following functions:
@@ -121,3 +243,8 @@
 // - renderPlaylist(playlist)
 // - loadTheme()
 // 🧪 Console log to confirm the app has been initialized
+loadPlaylist();
+renderPlaylist(playlist);
+loadTheme();
+
+console.log("App Initialised");
