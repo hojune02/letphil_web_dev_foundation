@@ -136,6 +136,11 @@ button:hover {
   transform: translateY(-1px);
 }
 
+article:hover{
+  opacity: 0.97;
+  transform: translateY(-1px);
+}
+
 button:active {
   transform: translateY(0);
   box-shadow: 0 8px 18px rgba(248, 171, 104, 0.35);

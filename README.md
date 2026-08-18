@@ -14,3 +14,5 @@
 ### LEVEL 2
 
 - Day 5 (260816): Completed all the `mini-project-*`s in `Level_2_Advanced_JavaScript/practice-homework`
+- Day 6 (260817): JS localStorage & API using Axios
+- Day 7 (260818): Props, Destructuring

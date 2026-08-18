@@ -31,7 +31,6 @@
 
       Everything else goes inside this <main>.
     -->
-
     <!-- 
       STEP 2 — Title and subtitle
 
@@ -139,10 +138,8 @@
         <script src="script.js"></script>   -->
 
     <main class="app">
-      <h1>🎓 Student Focus Board</h1>
-      <p class="subtitle">
-        Passing "props" (objects) into functions - object & array destructuring.
-      </p>
+      <h1>Student Focus Board</h1>
+      <p class="subtitle">Practising passing props to functions & destructuring</p>
       <section class="layout">
         <section class="card">
           <h2>Filters & View</h2>
@@ -152,35 +149,31 @@
             <button class="chip" data-level="intermediate">Intermediate</button>
             <button class="chip" data-level="advanced">Advanced</button>
           </div>
-          <input id="searchInput" type="text" placeholder="Search by name..." />
-
+          <input type="text" id="searchInput" placeholder="Search by name..."/>
           <div class="button-row">
-            <button type="button" id="highlightJsBtn">
-              Highlight JS lovers
-            </button>
-            <button class="button-ghost" id="resetHighlightBtn">
-              Reset highlight
-            </button>
+            <button id="highlightJsBtn">Highlight JS lovers</button>
+            <button id="resetHighlightBtn" class="button-ghost">Reset Highlight</button>
+          </div>
+          <p class="status" id="helperStatus">Status</p>
+          <div class="details-box">
+            "Props" refer to a structured data fed into a function for it to return data. 
+
+            Each student card is built from a single object passed into a function, similar to how React components receive props.
           </div>
 
-          <p class="status" id="helperStatus"></p>
-          <div class="details-box">
-            Each student card is built from a single object passed into a
-            function, similar to how React components receive props.
-          </div>
-          
         </section>
-         <section class="card">
-          <h2>Student Cards</h2>
-          <div id="cardGrid" class="cards-grid">
-            <p class="empty-state" id="emptyState">No students match the current filters.</p> 
-      </div>
-      <div id="selectedDetails" class="details-box">Click on a card to see a destructured summary here.
-      </div>
-      
-    </section>
-        
+        <section class="card">
+          <h2>Student cards</h2>
+          <div id="cardsGrid" class="cards-grid">
+            <p class="empty-state" id="emptyState">No students match the current filters.</p>
+
+          </div>
+          <div id="selectedDetails" class="details-box">
+            Click on a card to see a destructured summar here.
+          </div>
+        </section>
+
+      </section>
     </main>
-    <script src="script.js"></script>
   </body>
 </html>
