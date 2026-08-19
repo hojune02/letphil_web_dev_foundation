@@ -16,3 +16,8 @@
 - Day 5 (260816): Completed all the `mini-project-*`s in `Level_2_Advanced_JavaScript/practice-homework`
 - Day 6 (260817): JS localStorage & API using Axios
 - Day 7 (260818): Props, Destructuring
+- Day 8 (260819): Lvl 2 Final Project HTML & JS done with the following:
+  - Top navigation bar with three buttons (weather, to-do list, notes) to navigate between the pages
+  - Weather information from user's `cityName` input via OpenWeather API
+  - To-do list with edit and delete functionalities, as well as localStorage usage for data consistency
+  - Notes with edit and delete functionalities, as well as localStorage usage for data consistency

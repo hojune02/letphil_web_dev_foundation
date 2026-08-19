@@ -38,10 +38,12 @@ These projects integrate **DOM manipulation, local storage, navigation, API usag
     </nav>
 
     <section id="weatherPage" class="page">
-        Weather
+        <h2>Weather</h2>
         <div id="weatherPanel">
-            <input type="text" id="location" placeholder="Your location...">
-            <button id="locationBtn">Submit</button>
+            <label for="city">Your city:</label>
+            <input type="text" id="cityInput" placeholder="Your city...">
+            <button id="cityBtn">Submit</button>
+            <div id="weatherStatus"></div>
         </div>
     </section>
 
@@ -59,7 +61,22 @@ These projects integrate **DOM manipulation, local storage, navigation, API usag
     </section>
 
     <section id="notesPage" class="page">
-        Notes
+        <h2>Notes</h2>
+
+        <div id="notesPanel">
+            <label for="noteTitle">Title</label>
+            <input type="text" id="noteTitle" placeholder="Your title..." required>
+            <br>
+            <label for="noteTitle">Content</label>
+            <input type="text" id="noteContent" placeholder="Your note..." required>
+            <br>
+            <button id="noteBtn">Submit</button>
+        </div>
+
+        <h3>Your Notes</h3>
+        <ul id="notes">
+
+        </ul>
     </section>
 
     <script src="script.js"></script>
