@@ -1,0 +1,67 @@
+<!-- # Let Phil Tier 2 Final Projects
+
+These projects integrate **DOM manipulation, local storage, navigation, API usage, a contact form, and responsive design** using **HTML, CSS, and JavaScript**.
+
+## 📌 Project List
+
+### 1. Personal Dashboard$
+
+**Tech:** HTML, CSS, JavaScript  
+**Features:**  
+✅ Dynamic welcome message based on the time of day  
+✅ Weather widget (Fetch API - OpenWeather)  
+✅ To-do list (Local Storage)  
+✅ Notes section (Local Storage)  
+✅ Navigation between sections (home, weather, tasks, notes)  
+✅ Responsive design -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <button id="weatherBtn" class="navBtn" data-page="weatherPage">
+            Weather
+        </button>
+        <button id="todoBtn" class="navBtn" data-page="todoPage">
+            To-do list
+        </button>
+        <button id="notesBtn" class="navBtn" data-page="notesPage">
+            Notes
+        </button>
+    </nav>
+
+    <section id="weatherPage" class="page">
+        Weather
+        <div id="weatherPanel">
+            <input type="text" id="location" placeholder="Your location...">
+            <button id="locationBtn">Submit</button>
+        </div>
+    </section>
+
+    <section id="todoPage" class="page">
+        <h2>To-do List</h2>
+
+        <div id="todolistPanel">
+            <input type="text" id="task" placeholder="Your task...">
+            <button id="taskBtn">Submit</button>
+        </div>
+
+        <ul id="todos">
+
+        </ul>
+    </section>
+
+    <section id="notesPage" class="page">
+        Notes
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
