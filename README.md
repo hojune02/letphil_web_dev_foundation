@@ -21,3 +21,4 @@
   - Weather information from user's `cityName` input via OpenWeather API
   - To-do list with edit and delete functionalities, as well as localStorage usage for data consistency
   - Notes with edit and delete functionalities, as well as localStorage usage for data consistency
+- Day 9 (260820): Finished implementing CSS for Lvl 2 Final Project using ChatGPT. Started learning about React (component, virtual DOM, stateless & stateful)
