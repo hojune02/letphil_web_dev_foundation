@@ -1,3 +1,5 @@
+import APIKEY from './secret.js'
+
 /* Navigation */
 let weatherBtn = document.getElementById("weatherBtn");
 let todoBtn = document.getElementById("todoBtn");
@@ -41,7 +43,7 @@ let weatherStatus = document.getElementById("weatherStatus");
 
 async function geocodingFetch(){
     try {
-        let response = await fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${cityInput.value}&limit=5&appid=7f2a660de1d5b7626e29cb7e409220ea`);
+        let response = await fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${cityInput.value}&limit=5&appid=${APIKEY}`);
 
         let jsonRes = await response.json();
 
@@ -61,7 +63,7 @@ async function weatherFetch(){
         let lon = geocoding[1].lon;
         console.log(`lat: ${lat}`);
 
-        let response = await fetch(`https://api.openweathermap.org/data/4.0/onecall/current?lat=${lat}&lon=${lon}&units=metric&appid=7f2a660de1d5b7626e29cb7e409220ea`);
+        let response = await fetch(`https://api.openweathermap.org/data/4.0/onecall/current?lat=${lat}&lon=${lon}&units=metric&appid=${APIKEY}`);
 
         let jsonRes = await response.json();
 
